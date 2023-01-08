@@ -35,16 +35,16 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Services</a>
+                            <a href="{{ route('services') }}" class="nav-link">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Projects</a>
+                            <a href="{{ route('projects') }}" class="nav-link">Projects</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">About me</a>
+                            <a href="{{ route('about') }}" class="nav-link">About me</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Contact me</a>
+                            <a href="{{ route('contact-us') }}" class="nav-link">Contact me</a>
                         </li>
                     </ul>
 
