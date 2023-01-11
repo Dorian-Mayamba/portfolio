@@ -14,7 +14,7 @@
                 by clicking on the link down below.
             </p>
             <div class="link text-center">
-                <a id="banner-link" href="#" class="btn btn-lg btn-primary">Projects</a>
+                <a id="banner-link" href="{{ route('projects') }}" class="btn btn-lg btn-primary">Projects</a>
             </div>
         </div>
     </div>
