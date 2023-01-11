@@ -13,3 +13,7 @@ body{
 .provided-services .row .col-md-4 h2{
     color: #2fa360;
 }
+
+.provided-services .row .col-md-4 p{
+    margin: 0px 0px 0px 20px;
+}
