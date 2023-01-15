@@ -21,6 +21,7 @@ class CreateProjectsTable extends Migration
             $table->string('project_logo');
             $table->string('project_link');
             $table->string('project_file');
+            $table->string('project_file_extension');
             $table->timestamps();
         });
     }
