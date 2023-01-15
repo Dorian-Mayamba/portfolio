@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,11 +18,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/layouts.css') }}">
     @yield('extra-css')
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-green shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -69,8 +70,9 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -79,7 +81,15 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                </div>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('create-project') }}" class="text-secondary">Add project</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('create-category') }}" class="dropdown-item">Add category</a>
+                                    </li>
+                                    
+                                </ul>
                             </li>
                         @endguest
                     </ul>
@@ -88,8 +98,29 @@
         </nav>
 
         <main class="py-4">
+            @if (Session::has('danger'))
+                <div class="alert alert-danger">
+                    <h2 class="text-center"><small>{{ Session::get('danger') }}</small></h2>
+                </div>
+            @endif
+
+            @if (Session::has('success'))
+                <div class="alert alert-success">
+                    <h2 class="text-center"><small>{{ Session::get('success') }}</small></h2>
+                </div>
+            @endif
+
             @yield('content')
         </main>
+        @yield('footer-content')
+        <div class="footer bg-primary p-2" id="release-footer">
+            <h3 class="text-center text-light"><small>Released by <a class="text-light" href="#">Dorian Mayamba</a></small></h3>
+        </div>
     </div>
+    <script type="text/javascript">
+        setTimeout(() => {
+            $('.alert').fadeOut("slow");
+        }, 3000);
+    </script>
 </body>
 </html>

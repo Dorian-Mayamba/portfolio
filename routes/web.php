@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\AddCategoryController;
+use App\Http\Controllers\Admin\AddProjectController;
+use App\Http\Controllers\Admin\DeleteProjectController;
+use App\Http\Controllers\Admin\EditProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,11 +30,22 @@ Route::get('/about', [\App\Http\Controllers\AboutController::class, 'showAboutPa
 // ----------------- Contact Routes ----------------
 
 Route::get('/contact-us', [\App\Http\Controllers\ContactController::class, 'showContactForm'])->name('contact-us');
-
+Route::post('/contact-us', [\App\Http\Controllers\ContactController::class, 'sendMessage']);
 // ------------------ Projects route ------------------
 
 Route::get('/projects', [\App\Http\Controllers\ProjectController::class,'showProjectsPage'])->name('projects');
-
+Route::get('project/{id}', [\App\Http\Controllers\ProjectController::class, 'showProjectInfo'])->name('project-info');
 // ------------------- Service Route -------------------
 
 Route::get('/services', [\App\Http\Controllers\ServiceController::class, 'showServicePage'])->name('services');
+
+
+// ------------------- Admin route ------------- //
+
+Route::get('/admin/create-project', [AddProjectController::class, 'showProjectForm'])->name('create-project');
+Route::post('/admin/create-project', [AddProjectController::class, 'addProject']);
+Route::get('/edit-project/{id}', [EditProjectController::class,'showFilledProjectForm'])->name('edit-project');
+Route::post('/edit-projetct/{id}', [EditProjectController::class, 'editProject']);
+Route::delete('/delete-project/{id}', [DeleteProjectController::class, 'deleteProject'])->name('deleteProject');
+Route::get('/admin/create-category', [AddCategoryController::class, 'showCategoryForm'])->name('create-category');
+Route::post('/admin/create-category', [AddCategoryController::class, 'addCategory']);
