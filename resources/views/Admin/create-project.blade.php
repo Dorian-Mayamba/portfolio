@@ -50,7 +50,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <input type="text" class="form-control form-control-lg" name="poject_link" placeholder="Link">
+                <input type="text" class="form-control form-control-lg" name="project_link" placeholder="Link">
                 @error('project_link')
                     <div class="alert alert-danger">
                         <p><strong>{{ $message }}</strong></p>
