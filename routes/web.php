@@ -35,6 +35,7 @@ Route::post('/contact-us', [\App\Http\Controllers\ContactController::class, 'sen
 
 Route::get('/projects', [\App\Http\Controllers\ProjectController::class,'showProjectsPage'])->name('projects');
 Route::get('project/{id}', [\App\Http\Controllers\ProjectController::class, 'showProjectInfo'])->name('project-info');
+Route::get('download/{id}',[\App\Http\Controllers\ProjectController::class, 'download'])->name('download-game');
 // ------------------- Service Route -------------------
 
 Route::get('/services', [\App\Http\Controllers\ServiceController::class, 'showServicePage'])->name('services');
@@ -46,6 +47,6 @@ Route::get('/admin/create-project', [AddProjectController::class, 'showProjectFo
 Route::post('/admin/create-project', [AddProjectController::class, 'addProject']);
 Route::get('/edit-project/{id}', [EditProjectController::class,'showFilledProjectForm'])->name('edit-project');
 Route::post('/edit-projetct/{id}', [EditProjectController::class, 'editProject']);
-Route::delete('/delete-project/{id}', [DeleteProjectController::class, 'deleteProject'])->name('deleteProject');
+Route::delete('/delete-project/{id}', [DeleteProjectController::class, 'deleteProject'])->name('delete-project');
 Route::get('/admin/create-category', [AddCategoryController::class, 'showCategoryForm'])->name('create-category');
 Route::post('/admin/create-category', [AddCategoryController::class, 'addCategory']);

@@ -20,7 +20,7 @@
                 @endphp
                 <select class="form-control form-control-lg" name="category_name" id="category_name"
                     placeholder="select a category">
-                    <option value="{{ $project->project_category }}" selected>{{ $project->project_category_name }}</option>
+                    <option value="{{ $project->project_category }}" selected>{{ $project->project_category }}</option>
                     @foreach ($categories as $category)
                         @if ($category->category_name != $project->project_category)
                             <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>

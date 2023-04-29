@@ -29,7 +29,7 @@ class AddProjectRequest extends FormRequest
             'project_name' => ['required', 'string'],
             'category_name' => ['required'],
             'project_description' => ['required'],
-            'projet_logo' => ['required', 'image'],
+            'project_logo' => ['required', 'image'],
             'project_link' => ['required'],
             'project_file' => ['required', 'file']
         ];
@@ -48,7 +48,7 @@ class AddProjectRequest extends FormRequest
             'project_logo.required' => 'please upload a project logo',
             'project_logo.image' => 'your project logo should be an image',
             'project_link.required' => 'please enter a project link',
-            'project_file.required' => 'please upload a project file' 
+            'project_file.required' => 'please upload a project file'
         ];
     }
 }

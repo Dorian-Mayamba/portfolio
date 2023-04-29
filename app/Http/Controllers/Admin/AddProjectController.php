@@ -28,13 +28,12 @@ class AddProjectController extends Controller
             'project_name' => $request->project_name,
             'project_category' => $request->category_name,
             'project_description' => $request->project_description,
-            'project_logo' => '/Storage/'. $logo,
+            'project_logo' => '/storage/'.$logo,
             'project_link' => $request->project_link,
-            'project_file' => '/Storage/'.$file,
-            'project_file_extension' => $request->file('project_file')->getClientOriginalExtension()
+            'project_file' =>'/Storage/'.$file,
         ]);
 
         return redirect()->route('project-info', $new_project->id);
-        
+
     }
 }

@@ -41,9 +41,9 @@
                         <li class="nav-item">
                             <a href="{{ route('projects') }}" class="nav-link">Projects</a>
                         </li>
-                        <li class="nav-item">
+                        {{--<li class="nav-item">
                             <a href="{{ route('about') }}" class="nav-link">About me</a>
-                        </li>
+                        </li>--}}
                         <li class="nav-item">
                             <a href="{{ route('contact-us') }}" class="nav-link">Contact me</a>
                         </li>
@@ -88,7 +88,7 @@
                                     <li>
                                         <a href="{{ route('create-category') }}" class="dropdown-item">Add category</a>
                                     </li>
-                                    
+
                                 </ul>
                             </li>
                         @endguest
